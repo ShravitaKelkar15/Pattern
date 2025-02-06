@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+               
+                git 'https://github.com/ShravitaKelkar15/Pattern/new/main'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+              
+                bat 'Pattern.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                // Run the compiled Java file
+                bat 'java Pattern'
+            }
+        }
+    }
+}
